@@ -90,7 +90,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            cursor: pointer; /* Сделано кликабельным */
+            cursor: pointer;
             transition: transform 0.3s ease;
         }
 
@@ -110,9 +110,9 @@
         nav a {
             color: #fff;
             text-decoration: none;
-            margin-left: 35px;
-            font-size: 18px; /* Увеличено */
-            font-weight: 800; /* Жирнее */
+            margin-left: 25px;
+            font-size: 16px;
+            font-weight: 800;
             opacity: 0.6;
             transition: 0.3s;
             text-transform: uppercase;
@@ -278,12 +278,12 @@
                 transform: translateY(-2px);
             }
 
-        .promo-banner {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(10, 5, 20, 0.8));
-            border: 1px solid var(--accent-purple);
+        .promo-banner-custom {
+            background: #120821;
+            border: 1px solid #4a1d8a;
             border-radius: 20px;
-            margin: 0 8% 40px;
-            padding: 35px 45px;
+            margin: 40px 8%;
+            padding: 40px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -291,57 +291,73 @@
             overflow: hidden;
         }
 
-            .promo-banner::after {
-                content: 'FREE';
+            .promo-banner-custom::after {
+                content: "FREE";
                 position: absolute;
                 top: 15px;
                 right: -35px;
                 background: #ffcc00;
                 color: #000;
+                font-weight: 900;
+                font-size: 14px;
                 padding: 5px 40px;
-                font-size: 12px;
-                font-weight: 800;
                 transform: rotate(45deg);
-                box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+                box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
             }
 
-        .promo-content {
-            max-width: 65%;
+        .promo-content h2 {
+            margin: 0 0 10px;
+            font-size: 32px;
+            font-weight: 800;
         }
 
-            .promo-content h2 {
-                margin: 0 0 10px;
-                font-size: 24px;
-                font-weight: 800;
-            }
+        .promo-content p {
+            margin: 0;
+            color: #a394bc;
+            font-size: 16px;
+        }
 
-            .promo-content p {
-                margin: 0;
-                color: var(--text-dim);
-                font-size: 14px;
-                line-height: 1.6;
-            }
-
-        .btn-white {
-            background: #fff;
-            color: #000;
+        .promo-btn {
+            background: #ffffff;
+            color: #000000;
             padding: 14px 28px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 13px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             gap: 10px;
             transition: 0.3s;
+            z-index: 2;
             border: none;
             cursor: pointer;
-            white-space: nowrap;
         }
 
-            .btn-white:hover {
+            .promo-btn:hover {
                 transform: scale(1.05);
-                box-shadow: 0 0 25px rgba(255,255,255,0.3);
+                background: #f0f0f0;
+            }
+
+        .error-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 8% 40px;
+        }
+
+        .error-card {
+            background: rgba(255, 50, 50, 0.05);
+            border: 1px solid rgba(255, 50, 50, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+            .error-card:hover {
+                transform: scale(1.02);
+                border-color: #ff3232;
             }
 
         .grid-container {
@@ -349,13 +365,6 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             padding: 40px 8%;
-        }
-
-        .price-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            padding: 0 8% 50px;
         }
 
         .card {
@@ -375,30 +384,34 @@
                 background: var(--bg-panel-hover);
             }
 
-        .diag-section {
+        .calc-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 25px 40px;
             margin: 40px 8%;
+        }
+
+        .calc-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        #budget-range {
+            width: 100%;
+            accent-color: var(--accent-purple);
+            cursor: pointer;
+        }
+
+        .price-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             gap: 20px;
+            padding: 0 8% 50px;
         }
 
-        .diag-box {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(0,0,0,0.4));
-            border: 2px solid var(--accent-purple);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .price-val {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--accent-purple);
-            margin: 15px 0;
-            display: block;
-        }
-
-        /* --- НОВЫЙ ДИЗАЙН МОДАЛЬНОГО ОКНА --- */
         .modal {
             position: fixed;
             top: 0;
@@ -411,7 +424,6 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            padding: 20px;
         }
 
         .modal-content {
@@ -420,10 +432,9 @@
             padding: 45px 35px;
             border-radius: 30px;
             max-width: 550px;
-            width: 100%;
+            width: 90%;
             text-align: center;
             position: relative;
-            box-shadow: 0 0 50px rgba(168, 85, 247, 0.3);
             animation: modalIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -446,46 +457,6 @@
             font-size: 32px;
             cursor: pointer;
             color: var(--text-dim);
-            transition: 0.3s;
-        }
-
-            .close-modal:hover {
-                color: #fff;
-                transform: rotate(90deg);
-            }
-
-        #modalTitle {
-            font-size: 28px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: linear-gradient(to right, #fff, var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        #modalDesc {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #e0d5ff;
-            margin-bottom: 30px;
-            text-align: left;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 4px solid var(--accent-purple);
-        }
-
-        #modalPrice {
-            font-size: 38px;
-            font-weight: 900;
-            margin-bottom: 30px;
-            color: #fff;
-            text-shadow: 0 0 20px var(--neon-glow);
-            background: linear-gradient(45deg, var(--accent-purple), #d8b4fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         footer {
@@ -510,7 +481,7 @@
             }
 
         .hidden {
-            display: none;
+            display: none !important;
         }
 
         @media (max-width: 1300px) {
@@ -527,25 +498,21 @@
             .hero-container {
                 justify-content: center;
                 text-align: center;
-                padding-top: 40px;
-            }
-
-            .hero {
-                max-width: 100%;
-            }
-
-            .promo-banner {
-                flex-direction: column;
-                text-align: center;
-                gap: 25px;
-            }
-
-            .promo-content {
-                max-width: 100%;
             }
 
             .price-grid-layout {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .calc-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .promo-banner-custom {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
             }
         }
 
@@ -554,17 +521,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .diag-section {
-                grid-template-columns: 1fr;
-            }
-
             .hero h1 {
                 font-size: 36px;
-            }
-
-            nav a {
-                margin-left: 15px;
-                font-size: 14px;
             }
         }
     </style>
@@ -581,6 +539,7 @@
         <nav>
             <a href="#" id="link-main" class="active" onclick="showPage('main')">Главная</a>
             <a href="#" id="link-price" onclick="showPage('price')">Прайс-лист</a>
+            <a href="#" id="link-extra" onclick="showPage('extra')">Доп. услуги</a>
         </nav>
     </header>
 
@@ -589,7 +548,7 @@
             <section class="hero">
                 <div class="experience-badge"><i class="fas fa-star"></i> Опыт работы: 2.5 года</div>
                 <h1>Твой ПК будет работать <span>быстрее</span></h1>
-                <p>Профессиональное обслуживание, сборка и тонкая настройка систем в Белгороде и области.</p>
+                <p>Профессиональное обслуживание, сборка и тонкая настройка систем в Белгороде и онлайн.</p>
                 <button class="btn-glow" onclick="showPage('price')">ПОСМОТРЕТЬ УСЛУГИ <i class="fas fa-chevron-right"></i></button>
             </section>
 
@@ -602,46 +561,13 @@
                         </div>
                         <div style="width: 10px; height: 10px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00;"></div>
                     </div>
-
                     <div class="card-grid">
-                        <div class="stat-item">
-                            <span class="stat-label">FPS Boost</span>
-                            <span class="stat-value">+60<span>%</span></span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Latency</span>
-                            <span class="stat-value">0.8<span>ms</span></span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Stability</span>
-                            <span class="stat-value">99<span>%</span></span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Temp Drop</span>
-                            <span class="stat-value">-15<span>°C</span></span>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 25px; font-size: 11px; color: var(--text-dim); font-family: monospace; border-top: 1px solid rgba(168, 85, 247, 0.2); padding-top: 15px;">
-                        > system_status: <span style="color: var(--accent-purple)">optimized</span><br>
-                        > hardware_sync: <span style="color: var(--accent-purple)">active</span>
+                        <div class="stat-item"><span class="stat-label">FPS Boost</span><span class="stat-value">+60<span>%</span></span></div>
+                        <div class="stat-item"><span class="stat-label">Latency</span><span class="stat-value">0.8<span>ms</span></span></div>
+                        <div class="stat-item"><span class="stat-label">Stability</span><span class="stat-value">99<span>%</span></span></div>
+                        <div class="stat-item"><span class="stat-label">Temp Drop</span><span class="stat-value">-15<span>°C</span></span></div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="diag-section">
-            <div class="diag-box">
-                <i class="fab fa-discord" style="font-size: 30px; color: var(--accent-purple); margin-bottom: 15px; display: block;"></i>
-                <h2>Онлайн Диагностика</h2>
-                <p>Помощь в выявлении проблем через Discord или Telegram.</p>
-                <span class="price-val">БЕСПЛАТНО</span>
-            </div>
-            <div class="diag-box">
-                <i class="fas fa-car" style="font-size: 30px; color: var(--accent-purple); margin-bottom: 15px; display: block;"></i>
-                <h2>Выезд на дом</h2>
-                <p>Профессиональный осмотр и диагностика у вас дома.</p>
-                <span class="price-val">500 ₽</span>
             </div>
         </div>
 
@@ -649,7 +575,7 @@
             <div class="card">
                 <i class="fas fa-broom" style="font-size: 30px; color: var(--accent-purple); margin-bottom: 15px;"></i>
                 <h3>Чистка и ТО</h3>
-                <p>Избавление от перегрева и шума. Используем только качественные расходники MX-4/MX-6.</p>
+                <p>Избавление от перегрева и шума. Используем качественные расходники MX-4/MX-6.</p>
             </div>
             <div class="card">
                 <i class="fas fa-gamepad" style="font-size: 30px; color: var(--accent-purple); margin-bottom: 15px;"></i>
@@ -659,36 +585,87 @@
             <div class="card">
                 <i class="fas fa-tools" style="font-size: 30px; color: var(--accent-purple); margin-bottom: 15px;"></i>
                 <h3>Сборка и Апгрейд</h3>
-                <p>Сборка идеального ПК под ваш бюджет. Поможем вдохнуть жизнь в старое железо.</p>
+                <p>Сборка идеального ПК под бюджет. Поможем вдохнуть жизнь в старое железо.</p>
             </div>
         </div>
+
+        <div class="promo-banner-custom">
+            <div class="promo-content">
+                <h2>Бесплатная онлайн диагностика</h2>
+                <p>Выявим причину лагов, перегрева или синих экранов прямо в Discord или Telegram.</p>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSevTiapBqQQ_baUer_hcfR_RQipS6GN1mPrX4nvB2ycNc5YVw/viewform?usp=header" target="_blank" class="promo-btn">
+                <i class="fas fa-file-alt"></i> ЗАПОЛНИТЬ АНКЕТУ
+            </a>
+        </div>
+
+        <h2 style="text-align: center; margin: 60px 0 30px;">Топ ошибок пользователей</h2>
+        <div class="error-grid">
+            <div class="error-card">
+                <i class="fas fa-skull-crossbones" style="color: #ff3232; font-size: 24px;"></i>
+                <h3>ПК на ковре</h3>
+                <p>Блок питания задыхается, а корпус превращается в пылесос. Температуры выше на 10-15 градусов.</p>
+            </div>
+            <div class="error-card">
+                <i class="fas fa-tint-slash" style="color: #ff3232; font-size: 24px;"></i>
+                <h3>Термопаста-вечность</h3>
+                <p>Если не менял пасту более 2 лет, она превращается в камень и перестает отводить тепло.</p>
+            </div>
+            <div class="error-card">
+                <i class="fas fa-broom" style="color: #ff3232; font-size: 24px;"></i>
+                <h3>Чистка пылесосом</h3>
+                <p>Статическое электричество может убить материнку. Используй только сжатый воздух!</p>
+            </div>
+        </div>
+
+        <section class="calc-section">
+            <h3 style="text-align: center; margin: 0 0 20px; font-size: 22px;">Калькулятор FPS Сборки</h3>
+            <div class="calc-grid">
+                <div>
+                    <p style="margin-top: 0;">Твой бюджет: <b id="budget-val">50 000</b> ₽</p>
+                    <input type="range" id="budget-range" min="30000" max="250000" step="5000" value="50000">
+                    <div style="margin-top: 15px;">
+                        <p style="margin-bottom: 5px;">Выберите игру:</p>
+                        <select id="game-select" style="background: #1a0b2e; color: white; border: 1px solid var(--accent-purple); padding: 10px; width: 100%; border-radius: 8px; cursor: pointer;">
+                            <option value="rust">Rust</option>
+                            <option value="cs2" selected>Counter-Strike 2</option>
+                            <option value="gtav">GTA V</option>
+                            <option value="mc">Minecraft</option>
+                            <option value="cp2077">Cyberpunk 2077</option>
+                            <option value="dota2">Dota 2</option>
+                            <option value="wot">World Of Tanks</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="text-align: center; border-left: 1px solid var(--border-glow);">
+                    <p style="font-size: 13px; color: var(--text-dim); margin: 0;">Ожидаемый FPS (Full HD):</p>
+                    <div id="fps-result" style="font-size: 52px; font-weight: 900; color: var(--accent-purple); line-height: 1.2;">150</div>
+                    <p style="font-size: 11px; margin: 5px 0 0;">*При моей настройке системы</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <main id="page-price" class="hidden">
         <div style="text-align: center; margin: 60px 0 40px;">
             <h2 style="font-size: 42px; font-weight: 900; margin: 0; letter-spacing: 1px;">ПОЛНЫЙ ПРАЙС-ЛИСТ</h2>
-            <p style="color: var(--text-dim); font-size: 16px; margin-top: 10px;">Выберите нужную категорию услуг</p>
         </div>
-
-        <div class="promo-banner">
-            <div class="promo-content">
-                <h2>Бесплатная онлайн диагностика</h2>
-                <p>Выявим причину лагов, перегрева или синих экранов прямо в Discord или Telegram. Заполните короткую анкету и мы свяжемся с вами!</p>
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSevTiapBqQQ_baUer_hcfR_RQipS6GN1mPrX4nvB2ycNc5YVw/viewform?usp=header" target="_blank" class="btn-white">
-                <i class="fas fa-file-alt"></i> ЗАПОЛНИТЬ АНКЕТУ
-            </a>
-        </div>
-
         <div class="price-grid-layout" id="price-grid"></div>
+    </main>
+
+    <main id="page-extra" class="hidden">
+        <div style="text-align: center; margin: 60px 0 40px;">
+            <h2 style="font-size: 42px; font-weight: 900; margin: 0; letter-spacing: 1px;">ДОП. УСЛУГИ</h2>
+        </div>
+        <div class="price-grid-layout" id="extra-grid"></div>
     </main>
 
     <div class="modal" id="infoModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Услуга</h2>
-            <div id="modalDesc"></div>
-            <div id="modalPrice"></div>
+            <div id="modalDesc" style="text-align: left; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; border-left: 4px solid var(--accent-purple); margin-bottom: 30px;"></div>
+            <div id="modalPrice" style="font-size: 38px; font-weight: 900; margin-bottom: 30px; color: var(--accent-purple);"></div>
             <a href="https://t.me/readwayz" target="_blank" class="btn-glow" style="width: 100%; justify-content: center; background: #229ED9; border: none; padding: 18px;">
                 <i class="fab fa-telegram"></i> ЗАКАЗАТЬ В TELEGRAM
             </a>
@@ -697,95 +674,58 @@
 
     <footer>
         <div>© 2026 RDWZBOOST | Белгород</div>
-        <div class="social-links">
-            <a href="https://t.me/rdwzboost"><i class="fab fa-telegram"></i></a>
-        </div>
+        <div class="social-links"><a href="https://t.me/rdwzboost"><i class="fab fa-telegram"></i></a></div>
     </footer>
 
     <script>
         const services = [
-        {
-        name: "Базовая чистка",
-        price: "600 ₽",
-        desc: "🧹 Полная продувка корпуса от пыли компрессором.\n🌬️ Очистка радиаторов и лопастей вентиляторов.\n✨ Ваш ПК снова будет дышать свободно!"
-        },
-        {
-        name: "Чистка + Термопаста",
-        price: "1 200 ₽",
-        desc: "🛠️ Комплексное техническое обслуживание.\n🧴 Замена старой термопасты на топовые MX-4 или MX-6.\n🌡️ Снижение температуры процессора до -15°C.\n🤫 Тихая работа вентиляторов гарантирована!"
-        },
-        {
-        name: "Установка деталей",
-        price: "500 ₽",
-        desc: "🔌 Аккуратный монтаж любых комплектующих (RAM, SSD, GPU).\n✅ Проверка совместимости и первый запуск.\n📦 Помощь с распаковкой и установкой драйверов."
-        },
-        {
-        name: "Чистка Windows",
-        price: "800 ₽",
-        desc: "🚀 Удаление системного мусора и кэша.\n🛠️ Оптимизация автозагрузки и реестра.\n🛑 Отключение шпионских функций и телеметрии.\n💻 Система станет отзывчивее в разы!"
-        },
-        {
-        name: "Настройка для игр",
-        price: "1 500 ₽",
-        desc: "🎮 Глубокий тюнинг системы под киберспорт.\n⚡ Настройка электропитания и параметров видеокарты.\n📉 Уменьшение задержки (Input Lag).\n📊 Максимальный и стабильный FPS в CS2, Dota, Valorant."
-        },
-        {
-        name: "Windows + Драйверы",
-        price: "1 200 ₽",
-        desc: "💿 Установка официальной чистой Windows (10/11).\n📥 Поиск и инсталляция последних стабильных драйверов.\n🛡️ Настройка безопасности и базового ПО."
-        },
-        {
-        name: "Чистка девайсов",
-        price: "400 ₽",
-        desc: "⌨️ Глубокая чистка клавиатуры от крошек и пыли.\n🖱️ Очистка сенсора и ножек мыши.\n🧼 Дезинфекция поверхностей ваших игровых инструментов."
-        },
-        {
-        name: "Пакет программ",
-        price: "600 ₽",
-        desc: "📂 Установка Microsoft Office для работы и учебы.\n🎬 Необходимые кодеки, браузеры и мессенджеры.\n💎 Весь софт будет настроен и готов к работе."
-        },
-        {
-        name: "Консультация",
-        price: "500 ₽",
-        desc: "🧠 Профессиональный подбор железа под ваш бюджет.\n📝 Составление подробного списка покупок со ссылками.\n💸 Помогу сэкономить и не купить лишнего."
-        },
-        {
-        name: 'Сборка ПК "с нуля"',
-        price: "Договорная",
-        desc: "🏗️ Идеальная сборка вашего будущего компьютера.\n🧵 Качественный кабель-менеджмент (красота внутри).\n🧪 Стресс-тесты системы на стабильность.\n🏁 Настройка BIOS и установка ОС под ключ."
-        }
+        { name: "Базовая чистка", price: "600 ₽", desc: "🧹 Полная продувка корпуса.\n🌬️ Очистка радиаторов.\n✨ Ваш ПК снова будет дышать свободно!" },
+        { name: "Чистка + Термопаста", price: "1 200 ₽", desc: "🛠️ Техническое обслуживание.\n🧴 Замена пасты на MX-4/MX-6.\n🌡️ Снижение температур до -15°C." },
+        { name: "Установка деталей", price: "800 ₽", desc: "🔌 Аккуратный монтаж любых комплектующих.\n✅ Проверка совместимости." },
+        { name: "Чистка Windows", price: "500 ₽", desc: "🚀 Удаление мусора и кэша.\n🛠️ Оптимизация автозагрузки.\n🛑 Отключение телеметрии." },
+        { name: "Настройка для игр", price: "1 000 ₽", desc: "🎮 Тюнинг под киберспорт.\n⚡ Настройка электропитания.\n📉 Уменьшение Input Lag." },
+        { name: "Установка Windows", price: "800 ₽", desc: "💿 Установка официальной Windows (10/11).\n📥 Стабильные драйверы." },
+        { name: "Чистка девайсов", price: "400 ₽", desc: "⌨️ Чистка клавиатуры и мыши.\n🧼 Дезинфекция поверхностей." },
+        { name: "Офисные программы", price: "300 ₽", desc: "📂 MS Office, кодеки, браузеры." },
+        { name: "Консультация", price: "500 ₽", desc: "🧠 Подбор железа под бюджет.\n📝 Список покупок со ссылками." },
+        { name: 'Сборка ПК "с нуля"', price: "Договорная", desc: "🏗️ Идеальная сборка.\n🧵 Кабель-менеджмент.\n🏁 Настройка под ключ." }
         ];
 
-        const priceGrid = document.getElementById('price-grid');
-        services.forEach((item, index) => {
-        priceGrid.innerHTML += `
+        const extraServices = [
+        { name: "Создание Telegram-бота", price: "Договорная", desc: "🤖 Умные боты для бизнеса.\n⚙️ Интеграции и авто-ответы." },
+        { name: "Написание сайта", price: "Договорная", desc: "🌐 Landing Page или визитки.\n📱 Адаптивность под мобильные." },
+        { name: "Графический дизайн", price: "Договорная", desc: "🖼️ Обработка фото, баннеры.\n💎 Уникальные логотипов." }
+        ];
+
+        function renderServices(data, gridId) {
+        const grid = document.getElementById(gridId);
+        grid.innerHTML = '';
+        data.forEach((item, index) => {
+        grid.innerHTML += `
         <div class="card">
         <h3 style="font-size: 16px; margin-bottom: 5px;">${item.name}</h3>
-        <span class="price-val" style="margin-bottom: 20px;">${item.price}</span>
-        <button class="btn-glow" style="padding: 10px; font-size: 12px; justify-content: center;" onclick="openModal(${index})">ПОДРОБНЕЕ</button>
-        </div>
-        `;
+        <span class="price-val" style="margin-bottom: 20px; color: var(--accent-purple); font-weight:800; font-size:20px;">${item.price}</span>
+        <button class="btn-glow" style="padding: 10px; font-size: 12px; justify-content: center;" onclick="openModal(${index}, '${gridId}')">ПОДРОБНЕЕ</button>
+        </div>`;
         });
+        }
+
+        renderServices(services, 'price-grid');
+        renderServices(extraServices, 'extra-grid');
 
         function showPage(pageId) {
-        const main = document.getElementById('page-main');
-        const price = document.getElementById('page-price');
-        const linkMain = document.getElementById('link-main');
-        const linkPrice = document.getElementById('link-price');
-        if (pageId === 'main') {
-        main.classList.remove('hidden'); price.classList.add('hidden');
-        linkMain.classList.add('active'); linkPrice.classList.remove('active');
-        } else {
-        main.classList.add('hidden'); price.classList.remove('hidden');
-        linkMain.classList.remove('active'); linkPrice.classList.add('active');
-        }
+        ['main', 'price', 'extra'].forEach(p => {
+        document.getElementById('page-' + p).classList.add('hidden');
+        document.getElementById('link-' + p).classList.remove('active');
+        });
+        document.getElementById('page-' + pageId).classList.remove('hidden');
+        document.getElementById('link-' + pageId).classList.add('active');
         window.scrollTo(0, 0);
         }
 
-        function openModal(index) {
-        const s = services[index];
+        function openModal(index, gridId) {
+        const s = gridId === 'extra-grid' ? extraServices[index] : services[index];
         document.getElementById('modalTitle').innerText = s.name;
-        // Заменяем переносы строки на <br> для корректного отображения в HTML
         document.getElementById('modalDesc').innerHTML = s.desc.replace(/\n/g, '<br>');
         document.getElementById('modalPrice').innerText = s.price;
         document.getElementById('infoModal').style.display = 'flex';
@@ -797,14 +737,46 @@
         document.body.style.overflow = 'auto';
         }
 
-        // Закрытие модалки при клике вне контента
-        window.onclick = function(event) {
-        const modal = document.getElementById('infoModal');
-        if (event.target == modal) {
-        closeModal();
+        // --- ЛОГИКА КАЛЬКУЛЯТОРА ---
+        const budgetRange = document.getElementById('budget-range');
+        const budgetVal = document.getElementById('budget-val');
+        const gameSelect = document.getElementById('game-select');
+        const fpsResult = document.getElementById('fps-result');
+
+        const fpsData = {
+        'rust': [40, 300],
+        'cs2': [87, 800],
+        'gtav': [60, 250],
+        'mc': [120, 1000],
+        'cp2077': [30, 165],
+        'dota2': [60, 400],
+        'wot': [60, 350]
+        };
+
+        function updateFPS() {
+        const budget = parseInt(budgetRange.value);
+        const game = gameSelect.value;
+        budgetVal.innerText = budget.toLocaleString();
+
+        const minBudget = 30000;
+        const maxBudget = 250000;
+        const [minFps, maxFps] = fpsData[game];
+
+        const ratio = (budget - minBudget) / (maxBudget - minBudget);
+        let currentFps = Math.round(minFps + (ratio * (maxFps - minFps)));
+
+        if (game === 'mc' && budget >= 240000) {
+        fpsResult.innerText = currentFps + "+";
+        } else {
+        fpsResult.innerText = currentFps;
         }
         }
 
+        budgetRange.addEventListener('input', updateFPS);
+        gameSelect.addEventListener('change', updateFPS);
+        updateFPS();
+
+        // --- ЧАСТИЦЫ ---
         function createParticles() {
         const container = document.getElementById('particles');
         for (let i = 0; i < 40; i++) {
@@ -819,6 +791,8 @@
         }
         }
         createParticles();
+
+        window.onclick = (e) => { if (e.target == document.getElementById('infoModal')) closeModal(); }
     </script>
 </body>
 </html>
